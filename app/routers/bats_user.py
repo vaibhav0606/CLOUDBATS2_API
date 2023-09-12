@@ -16,12 +16,15 @@ def get_all_user(db:Session=Depends(database.Connect_db)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
     return get_all
 
-
 @router.post('/', response_model=schema_User.addUser)
 def create_user(request: schema_User.addUser,db: Session = Depends(database.Connect_db)):
     return user.create_user(request,db)
 
+@router.get('/{Email}',response_model=list[schema_User.showUser],status_code=status.HTTP_200_OK)
+def show_mail(Email:str,db: Session = Depends(database.Connect_db)):
+    return user.show_mail(id,db)
+
 
 @router.get('/{id}',response_model=schema_User.showUser)
-def get_user_by_id(id:int,db: Session = Depends(database.Connect_db)):
-    return user.show(id,db)
+def show_id(id:str,db: Session = Depends(database.Connect_db)):
+    return user.show_id(id,db)

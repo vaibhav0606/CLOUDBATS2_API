@@ -8,11 +8,7 @@ from sqlalchemy.sql import func
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import relationship
 
-
-
 Base = declarative_base()
-
-
  
 class User(Base):    
     __tablename__ = 'User'
@@ -35,3 +31,5 @@ class User_login(Base):
     token_type= Column(String)
     AddedOn =Column(String)
     status =Column(Integer)
+    
+    
