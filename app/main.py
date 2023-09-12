@@ -8,7 +8,6 @@ models_User.Base.metadata.create_all(engine)
 
 
 
-bats = FastAPI( title="BATS",
-    description= "Python base API")
+bats = FastAPI( title="BATS",description= "Python base FAST API")
 bats.include_router(authentication.router)
 bats.include_router(bats_user.router)
