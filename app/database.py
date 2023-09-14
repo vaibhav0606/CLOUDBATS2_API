@@ -9,7 +9,7 @@ from databases import Database
 
 
 
-DATABASE_URL = "mssql+pymssql://sa:Orange$23@103.14.96.209/CouldBATS"
+DATABASE_URL = "mssql+pymssql://sa:Orange$23@103.14.96.209/PYBATS"
 
 engine = create_engine(DATABASE_URL)
 

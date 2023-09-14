@@ -1,17 +1,22 @@
 from fastapi import FastAPI 
 from typing import Optional
-from app.routers import bats_user,authentication
-from .models import models_User 
+from app.routers import bats_user,authentication,bats_currencymaster,bats_locationmaster,bats_loginmaster
+from .models import models_User, models_master,model_loginmaster
 from .database import engine
-from fastapi.middleware.cors import CORSMiddleware
 
 models_User.Base.metadata.create_all(engine)
+model_loginmaster.Base.metadata.create_all(engine)
+models_master.Base.metadata.create_all(engine)
 
 
-
-bats = FastAPI( title="BATS",description= "Python base FASTAPI")
+bats = FastAPI( title="BATS",
+    description= "Python base API")
 bats.include_router(authentication.router)
 bats.include_router(bats_user.router)
+bats.include_router(bats_loginmaster.router)
+bats.include_router(bats_currencymaster.router)
+bats.include_router(bats_locationmaster.router)
+
 
 
 origins = [
