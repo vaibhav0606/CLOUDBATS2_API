@@ -10,12 +10,12 @@ from typing import List
 router=APIRouter(prefix="/loginmaster",tags=["login master"])
 
 @router.get('/',response_model=List[scheema_loginmaster.showLogins])
-def get_all(db: Session = Depends(database.Connect_db)):
+def get_all(db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return loginmaster.get_all(db)
 
 
 @router.get('/{LoginCode}',response_model=scheema_loginmaster.showLogins)
-def get_id(LoginCode:int,db: Session = Depends(database.Connect_db)):
+def get_id(LoginCode:int,db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return loginmaster.get_id(LoginCode,db)
 
 
@@ -24,5 +24,5 @@ def create(request: scheema_loginmaster.addLogin,db: Session = Depends(database.
     return loginmaster.create(request,db)
 
 @router.put('/{LoginCode}', status_code=status.HTTP_202_ACCEPTED)
-def update(LoginCode:int, request: scheema_loginmaster.updatelogin, db: Session = Depends(database.Connect_db)):
+def update(LoginCode:int, request: scheema_loginmaster.updatelogin, db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return loginmaster.update(LoginCode,request, db)

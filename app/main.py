@@ -1,6 +1,6 @@
 from fastapi import FastAPI 
 from typing import Optional
-from app.routers import bats_user,authentication,bats_currencymaster,bats_locationmaster,bats_loginmaster
+from app.routers import bats_user,authentication,bats_currencymaster,bats_locationmaster,bats_loginmaster,bats_entitymaster,bats_channelmaster
 from .models import models_User, models_master,model_loginmaster
 from .database import engine
 from fastapi.middleware.cors import CORSMiddleware
@@ -17,8 +17,8 @@ bats.include_router(bats_user.router)
 bats.include_router(bats_loginmaster.router)
 bats.include_router(bats_currencymaster.router)
 bats.include_router(bats_locationmaster.router)
-
-
+bats.include_router(bats_entitymaster.router)
+bats.include_router(bats_channelmaster.router)
 
 origins = [
     "*",  # Allow requests from this domain
