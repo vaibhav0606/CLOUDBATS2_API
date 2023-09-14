@@ -3,6 +3,7 @@ from typing import Optional
 from app.routers import bats_user,authentication,bats_currencymaster,bats_locationmaster,bats_loginmaster
 from .models import models_User, models_master,model_loginmaster
 from .database import engine
+from fastapi.middleware.cors import CORSMiddleware
 
 models_User.Base.metadata.create_all(engine)
 model_loginmaster.Base.metadata.create_all(engine)
