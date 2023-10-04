@@ -1,0 +1,18 @@
+Create venv file 
+
+python -m venv venv 
+
+activate venv
+
+for linux
+source venv/bin/activate
+
+for windows
+venv/Scripts/activate
+
+if not starts beacause disable from system
+Set-ExecutionPolicy Unrestricted -Force
+
+install requirment text
+
+pip install -r requirements.txt
