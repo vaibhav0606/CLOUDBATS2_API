@@ -15,6 +15,7 @@ def create(request:schema_subgenreMaster.add,db: Session,current_user):
     db.add(create)
     db.commit()
     db.refresh(create)
+    #return create 
     return create 
 
 def update(SubGenreCode:int,request:schema_subgenreMaster.update,db: Session,current_user):
