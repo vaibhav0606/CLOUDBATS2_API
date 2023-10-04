@@ -17,7 +17,7 @@ def create(request:schema_subgenreMaster.add,db: Session,current_user):
     db.refresh(create)
     #return create 
     return create 
-
+#return create
 def update(SubGenreCode:int,request:schema_subgenreMaster.update,db: Session,current_user):
     update_query=db.query(models_master.SubGenreMaster).filter(models_master.SubGenreMaster.SubGenreCode == SubGenreCode)
     if not update_query.first():
