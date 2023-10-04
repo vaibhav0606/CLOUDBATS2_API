@@ -37,4 +37,4 @@ class putout(BaseModel):
     
 class showlocation(BaseModel):
     LocationName : str
-    ShortName : str
+    LocationCode : int

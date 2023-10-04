@@ -2,7 +2,12 @@ from fastapi import FastAPI
 from typing import Optional
 from .models import models_User, models_master
 from .database import engine
-from fastapi.middleware.cors import CORSMiddleware
+"""
+from starlette.exceptions import HTTPException
+from fastapi.exceptions import RequestValidationError
+from .exception_handlers import request_validation_exception_handler, http_exception_handler, unhandled_exception_handler
+from .middleware import log_request_middleware
+"""
 from app.routers import (
     bats_user,
     authentication,
@@ -28,7 +33,13 @@ from app.routers import (
     bats_languagemaster,
     bats_timezonemaster,
     bats_eventcolormaster,
-    bats_SubgenreMaster
+    bats_playoutmaster,
+    bats_channelsetting,
+    bats_entitymapping,
+    bats_ftpsetting,
+    bats_starcasttype,
+    bats_starcastmaster,
+    bats_genrecode
 )
 
 models_User.Base.metadata.create_all(engine)
@@ -59,26 +70,26 @@ routers = [
     bats_languagemaster.router,
     bats_timezonemaster.router,
     bats_eventcolormaster.router,
-    bats_SubgenreMaster.router
+    bats_playoutmaster.router,
+    bats_channelsetting.router,
+    bats_entitymapping.router,
+    bats_ftpsetting.router,
+    bats_starcasttype.router,
+    bats_starcastmaster.router,
+    bats_genrecode.router
     
 ]
 
 
 bats = FastAPI( title="BATS",
     description= "Python based API")
+"""
+#custome Logger 
+bats.middleware("http")(log_request_middleware)
+bats.add_exception_handler(RequestValidationError, request_validation_exception_handler)
+bats.add_exception_handler(HTTPException, http_exception_handler)
+bats.add_exception_handler(Exception, unhandled_exception_handler)
+"""
 
 for router in routers:
     bats.include_router(router)
-
-
-
-origins = [
-    "*",  # Allow requests from this domain
-    ]
-bats.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,  # Allow cookies in CORS requests
-    allow_methods=["*"],     # Allow all HTTP methods (you can specify a list of methods)
-    allow_headers=["*"],     # Allow all HTTP headers (you can specify a list of headers)
-)

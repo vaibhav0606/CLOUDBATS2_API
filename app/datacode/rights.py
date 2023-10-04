@@ -36,7 +36,7 @@ def get_id(PlaceCode:int,db:Session):
     user = db.query(model).filter(model.PlaceCode == PlaceCode).first()
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f"Place  not available")
+                            detail=f"rights  not available")
     return user
 
 def get_all(db:Session):

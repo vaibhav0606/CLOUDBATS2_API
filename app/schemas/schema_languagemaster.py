@@ -31,5 +31,5 @@ class putout(BaseModel):
     status : str = "Updated"
     
 class showlocation(BaseModel):
-    LocationName : str
-    ShortName : str
+    LanguageName : str
+    LanguageCode : int

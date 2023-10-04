@@ -17,10 +17,8 @@ class add(BaseModel):
     ShortName : str
     IsActive  : str
     
-class update(BaseModel):
-    ZoneName : str
-    ShortName : str
-    IsActive  : str 
+class update(add):
+    pass
     
 class postout(BaseModel):
     ZoneName : str
