@@ -17,10 +17,8 @@ class add(BaseModel):
     ShortName : str
     IsActive  : int
     
-class update(BaseModel):
-    CountryName : str
-    ShortName : str
-    IsActive  : int 
+class update(add):
+   pass
     
 class postout(BaseModel):
     CountryName : str

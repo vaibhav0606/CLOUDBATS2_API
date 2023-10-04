@@ -39,3 +39,7 @@ class putout(BaseModel):
     EntityName : str
     code : str = "200"
     status : str = "Updated"
+    
+class showentity(BaseModel):
+    EntityCode : int
+    EntityName : str

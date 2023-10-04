@@ -6,10 +6,10 @@ from fastapi import HTTPException,status
 from datetime import datetime
 
 def create(request:schema.add,db: Session,current_user):
-    Check=db.query(model).filter(model.PlaceName == request.PlaceName)
+    """Check=db.query(model).filter(model.PlaceName == request.PlaceName)
     if Check.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f"Place is Already Exists")
+                            detail=f"Employee is Already Exists")"""
     create=model(AddedBy=current_user.LoginCode,**request.model_dump())
     db.add(create)
     db.commit()
