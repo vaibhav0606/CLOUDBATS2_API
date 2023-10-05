@@ -8,7 +8,7 @@ from fastapi.exceptions import RequestValidationError
 from .exception_handlers import request_validation_exception_handler, http_exception_handler, unhandled_exception_handler
 from .middleware import log_request_middleware
 """
-from app.routers import (
+from app.routers.admin import (
     bats_user,
     authentication,
     bats_currencymaster,
@@ -37,10 +37,11 @@ from app.routers import (
     bats_channelsetting,
     bats_entitymapping,
     bats_ftpsetting,
+)
+from app.routers.programing import ( 
     bats_starcasttype,
     bats_starcastmaster,
-    bats_genrecode
-)
+    bats_genrecode)
 
 models_User.Base.metadata.create_all(engine)
 models_master.Base.metadata.create_all(engine)
