@@ -18,6 +18,8 @@ def create(request:schema.add,db: Session,current_user):
         db.commit()
         db.refresh(create)
         return create 
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"frommaster in create: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -39,6 +41,8 @@ def update(FormCode:int,request:schema.update,db: Session,current_user):
         update_query.update(update_data, synchronize_session=False)
         db.commit()
         return update_query.first()
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"frommaster in update: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -46,13 +50,13 @@ def update(FormCode:int,request:schema.update,db: Session,current_user):
 
 def get_id(FormCode:int,db:Session):
     try:
-            
         data = db.query(model).filter(model.FormCode == FormCode).first()
         if not data:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail=f"Form is not available")
         return data
-
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"frommaster in get_id: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -63,8 +67,24 @@ def get_all(db:Session):
         if not get_all:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
         return get_all
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"frommaster in get_all: {str(e)}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
+    
+    
+
+def get_drop(db:Session):
+    try:
+        get_all=db.query(model).all()
+        if not get_all:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
+        return get_all
+    except HTTPException as http_exception:
+        raise http_exception
+    except Exception as e:
+        logging.error(f"frommaster in get_drop: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
 
         

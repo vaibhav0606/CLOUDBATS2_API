@@ -35,3 +35,10 @@ class showmodule(BaseModel):
     ModuleCode : int
     ModuleName : str
   
+  
+
+class loaddropdown(BaseModel):
+    ModuleCode : int
+    ModuleName : str
+    class Config:
+        orm_mode=True

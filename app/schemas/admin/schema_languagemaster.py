@@ -33,3 +33,11 @@ class putout(BaseModel):
 class showlocation(BaseModel):
     LanguageName : str
     LanguageCode : int
+    
+
+class loaddropdown(BaseModel):
+    LanguageName : str
+    LanguageCode : int
+    class Config:
+        orm_mode=True
+    

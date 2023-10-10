@@ -33,3 +33,9 @@ class putout(BaseModel):
 class showdepartment(BaseModel):
     DepartmentCode : int
     DepartmentName : str
+
+class loaddropdown(BaseModel):
+    DepartmentCode : int
+    DepartmentName : str
+    class Config:
+        orm_mode=True

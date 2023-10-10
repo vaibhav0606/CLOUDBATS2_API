@@ -44,3 +44,9 @@ class putout(BaseModel):
 class showchannel(BaseModel):
     ChannelCode : int
     ChannelName : str
+    
+class loaddropdown(BaseModel):
+    ChannelCode : int
+    ChannelName : str
+    class Config:
+        orm_mode=True

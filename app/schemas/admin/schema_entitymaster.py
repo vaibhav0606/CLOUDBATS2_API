@@ -43,3 +43,11 @@ class putout(BaseModel):
 class showentity(BaseModel):
     EntityCode : int
     EntityName : str
+    
+
+class loaddropdown(BaseModel):
+    EntityCode : int
+    EntityName : str
+    class Config:
+        orm_mode=True
+   

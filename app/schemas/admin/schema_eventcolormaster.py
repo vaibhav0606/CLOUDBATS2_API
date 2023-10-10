@@ -38,4 +38,12 @@ class putout(BaseModel):
     EventName : str
     code : str = "200"
     status : str = "Updated"
+    
+
+class loaddropdown(BaseModel):
+    EventCode : int 
+    EventName : str
+    class Config:
+        orm_mode=True
+   
 

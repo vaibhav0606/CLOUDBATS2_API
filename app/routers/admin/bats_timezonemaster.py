@@ -23,3 +23,8 @@ def create(request: schema.add,db: Session = Depends(database.Connect_db),curren
 @router.put('/{TimeZoneCode}', response_model=schema.putout)
 def update(TimeZoneCode:int, request: schema.update, db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return datacode.update(TimeZoneCode,request, db,current_user)
+
+
+@router.get('/drop/',response_model=List[schema.loaddropdown])
+def get_drop(db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
+    return datacode.get_drop(db)

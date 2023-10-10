@@ -19,3 +19,4 @@ def get_id(id:int,db: Session = Depends(database.Connect_db),current_user: users
 @router.post('/', response_model=schema.postout)
 def create(request: schema.add,db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return datacode.create(request,db,current_user) 
+

@@ -67,3 +67,16 @@ def get_all(db:Session):
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
 
 
+def get_drop(db:Session):
+    try:
+        get_all=db.query(model).all()
+        if not get_all:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
+        return get_all
+    except HTTPException as http_exception:
+        raise http_exception
+    except Exception as e:
+        logging.error(f"genremaster in get_drop: {str(e)}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
+
+
