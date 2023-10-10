@@ -6,31 +6,32 @@ from .schema_statemaster import showstate
 from .schema_departmentMaster import showdepartment
 from .schema_designationMaster import showdesignation
 from .schema_regionMaster import showregion
+from typing import Optional
 
 
 class show(BaseModel):
     EmployeeCode : int
     Emp_FirstName: str
     Emp_LastName: str
-    Emp_Code: str
-    Emp_Email: str
-    Emp_Addr1: str
-    Emp_Addr2: str
+    Emp_Code: Optional[str]
+    Emp_Email: Optional[str]
+    Emp_Addr1: Optional[str]
+    Emp_Addr2: Optional[str]
     Place: showplace
     Country: showcountry
     State: showstate
     Emp_Contact1: str
-    Emp_Contact2: str
+    Emp_Contact2: Optional[str]
     Emp_Grade: str
     Emp_DOB: datetime
     Emp_DOJ: datetime
-    Emp_DOL: datetime
-    Emp_BloodGroup: str
-    Emp_Image: str
+    Emp_DOL: Optional[datetime]
+    Emp_BloodGroup: Optional[str]
+    Emp_Image: Optional[str]
     Department : showdepartment
     Designation : showdesignation
-    ReportingTo: int
-    Emp_Description: str
+    ReportingTo: Optional[int]
+    Emp_Description: Optional[str]
     Region : showregion
     IsActive: int
     AddedOn : datetime
@@ -42,11 +43,11 @@ class show(BaseModel):
 class add(BaseModel):
     Emp_FirstName: str
     Emp_LastName: str
-    Emp_Code: str
-    Emp_Email: str
-    Emp_Addr1: str
-    Emp_Addr2: str
-    CityCode: int
+    Emp_Code: Optional[str]
+    Emp_Email: Optional[str]
+    Emp_Addr1: Optional[str]
+    Emp_Addr2: Optional[str]
+    PlaceCode: int
     StateCode: int
     CountryCode: int
     Emp_Contact1: str
@@ -54,19 +55,20 @@ class add(BaseModel):
     Emp_Grade: str
     Emp_DOB: datetime
     Emp_DOJ: datetime
-    Emp_DOL: datetime
-    Emp_BloodGroup: str
+    Emp_DOL: Optional[datetime]
+    Emp_BloodGroup: Optional[str]
+    Emp_Image: Optional[str]
     Emp_Image: str
     DepartmentCode: int
     DesignationCode: int
-    ReportingTo: int
-    Emp_Description: str
+    ReportingTo: Optional[int]
+    Emp_Description: Optional[str]
     RegionCode: int
     IsActive: int
     
 
     
-class update(BaseModel):
+class update(add):
     pass
 
 
@@ -85,4 +87,10 @@ class showemp(BaseModel):
     Emp_FirstName: str
     Emp_LastName: str
     
+
+class loaddropdown(BaseModel):
+    EmployeeCode : int
+    Emp_FirstName: str
+    class Config:
+        orm_mode=True
    

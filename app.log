@@ -1,0 +1,87 @@
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in create: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:entitymaster in update: 
+ERROR:root:departmentMaster in get_all: 
+ERROR:root:departmentMaster in get_all: 
+ERROR:root:employeemaster in get_all: 
+ERROR:root:zoneMaster in create: (pymssql._pymssql.OperationalError) (245, b"Conversion failed when converting the nvarchar value 'string' to data type int.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: INSERT INTO [tbl_ZoneMaster] ([ZoneName], [ShortName], [IsActive], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[ZoneCode] VALUES (%(ZoneName)s, %(ShortName)s, %(IsActive)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'ZoneName': 'string', 'ShortName': 'string', 'IsActive': 'string', 'AddedBy': 3, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+ERROR:root:zoneMaster in create: (pymssql._pymssql.OperationalError) (245, b"Conversion failed when converting the nvarchar value 'string' to data type int.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: INSERT INTO [tbl_ZoneMaster] ([ZoneName], [ShortName], [IsActive], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[ZoneCode] VALUES (%(ZoneName)s, %(ShortName)s, %(IsActive)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'ZoneName': 'string', 'ShortName': 'string', 'IsActive': 'string', 'AddedBy': 3, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+ERROR:root:zoneMaster in create: (pymssql._pymssql.OperationalError) (245, b"Conversion failed when converting the nvarchar value 'string' to data type int.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: INSERT INTO [tbl_ZoneMaster] ([ZoneName], [ShortName], [IsActive], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[ZoneCode] VALUES (%(ZoneName)s, %(ShortName)s, %(IsActive)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'ZoneName': 'string', 'ShortName': 'string', 'IsActive': 'string', 'AddedBy': 3, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+ERROR:root:languagemaster in create: (pymssql._pymssql.OperationalError) (8114, b'Error converting data type nvarchar to bigint.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
+[SQL: INSERT INTO [tbl_LanguageMaster] ([LanguageName], [CountryCode], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[LanguageCode] VALUES (%(LanguageName)s, %(CountryCode)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'LanguageName': 'string', 'CountryCode': 'string', 'AddedBy': 2, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+ERROR:root:languagemaster in create: (pymssql._pymssql.IntegrityError) (547, b'The INSERT statement conflicted with the FOREIGN KEY constraint "FK__tbl_Langu__Count__65C116E7". The conflict occurred in database "PYBATS", table "dbo.tbl_CountryMaster", column \'CountryCode\'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
+[SQL: INSERT INTO [tbl_LanguageMaster] ([LanguageName], [CountryCode], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[LanguageCode] VALUES (%(LanguageName)s, %(CountryCode)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'LanguageName': 'string', 'CountryCode': 0, 'AddedBy': 2, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+ERROR:root:languagemaster in create: (pymssql._pymssql.IntegrityError) (547, b'The INSERT statement conflicted with the FOREIGN KEY constraint "FK__tbl_Langu__Count__65C116E7". The conflict occurred in database "PYBATS", table "dbo.tbl_CountryMaster", column \'CountryCode\'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
+[SQL: INSERT INTO [tbl_LanguageMaster] ([LanguageName], [CountryCode], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[LanguageCode] VALUES (%(LanguageName)s, %(CountryCode)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'LanguageName': 'string', 'CountryCode': 0, 'AddedBy': 2, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+ERROR:root:languagemaster in create: (pymssql._pymssql.IntegrityError) (547, b'The INSERT statement conflicted with the FOREIGN KEY constraint "FK__tbl_Langu__Count__65C116E7". The conflict occurred in database "PYBATS", table "dbo.tbl_CountryMaster", column \'CountryCode\'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
+[SQL: INSERT INTO [tbl_LanguageMaster] ([LanguageName], [CountryCode], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[LanguageCode] VALUES (%(LanguageName)s, %(CountryCode)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'LanguageName': 'temp', 'CountryCode': 2, 'AddedBy': 2, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+ERROR:root:statemaster in create: (pymssql._pymssql.OperationalError) (2628, b"String or binary data would be truncated in table 'PYBATS.dbo.tbl_StateMaster', column 'StateTinNo'. Truncated value: 'strin'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: INSERT INTO [tbl_StateMaster] ([StateName], [StateShortName], [StateTinNo], [CountryCode], [IsActive], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[StateCode] VALUES (%(StateName)s, %(StateShortName)s, %(StateTinNo)s, %(CountryCode)s, %(IsActive)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'StateName': 'string', 'StateShortName': 'string', 'StateTinNo': 'string', 'CountryCode': 0, 'IsActive': 0, 'AddedBy': 2, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+ERROR:root:regionMaster in create: (pymssql._pymssql.IntegrityError) (547, b'The INSERT statement conflicted with the FOREIGN KEY constraint "FK__tbl_Regio__ZoneC__27C3E46E". The conflict occurred in database "PYBATS", table "dbo.tbl_ZoneMaster", column \'ZoneCode\'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
+[SQL: INSERT INTO [tbl_RegionMaster] ([RegionName], [ShortName], [ZoneCode], [IsActive], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[RegionCode] VALUES (%(RegionName)s, %(ShortName)s, %(ZoneCode)s, %(IsActive)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'RegionName': 'string', 'ShortName': 'string', 'ZoneCode': 0, 'IsActive': 0, 'AddedBy': 2, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+ERROR:root:palcemaster in create: (pymssql._pymssql.IntegrityError) (547, b'The INSERT statement conflicted with the FOREIGN KEY constraint "FK__tbl_Place__ZoneC__314D4EA8". The conflict occurred in database "PYBATS", table "dbo.tbl_ZoneMaster", column \'ZoneCode\'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n')
+[SQL: INSERT INTO [tbl_PlaceMaster] ([PlaceName], [ShortName], [ZoneCode], [StateCode], [CountryCode], [IsActive], [AddedBy], [AddedOn], [ModifiedBy], [ModifiedOn]) OUTPUT inserted.[PlaceCode] VALUES (%(PlaceName)s, %(ShortName)s, %(ZoneCode)s, %(StateCode)s, %(CountryCode)s, %(IsActive)s, %(AddedBy)s, CURRENT_TIMESTAMP, %(ModifiedBy)s, %(ModifiedOn)s)]
+[parameters: {'PlaceName': 'string', 'ShortName': 'string', 'ZoneCode': 0, 'StateCode': 0, 'CountryCode': 0, 'IsActive': 0, 'AddedBy': 2, 'ModifiedBy': None, 'ModifiedOn': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+ERROR:root:employeemaster in create: 'CityCode' is an invalid keyword argument for EmployeeMaster
+ERROR:root:employeemaster in create: 'CityCode' is an invalid keyword argument for EmployeeMaster
+ERROR:root:employeemaster in create: 'CityCode' is an invalid keyword argument for EmployeeMaster
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:employeemaster in create: 'CityCode' is an invalid keyword argument for EmployeeMaster
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:employeemaster in create: 'CityCode' is an invalid keyword argument for EmployeeMaster
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:regionMaster in update: 'update' object has no attribute 'RegionName'
+ERROR:root:employeemaster in update: Unconsumed column names: CityCode
+ERROR:root:employeemaster in update: Unconsumed column names: CityCode
+ERROR:root:employeemaster in update: Unconsumed column names: CityCode
+ERROR:root:employeemaster in update: Unconsumed column names: CityCode
+ERROR:root:currencymaster in update: (pymssql._pymssql.OperationalError) (2628, b"String or binary data would be truncated in table 'PYBATS.dbo.tbl_CurrencyMaster', column 'ShortName'. Truncated value: 'sheke'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: UPDATE [tbl_CurrencyMaster] SET [CurrencyName]=%(CurrencyName)s, [Currency_image]=%(Currency_image)s, [CurrencySymbol]=%(CurrencySymbol)s, [ShortName]=%(ShortName)s, [ModifiedBy]=%(ModifiedBy)s, [ModifiedOn]=%(ModifiedOn)s WHERE [tbl_CurrencyMaster].[CurrencyCode] = %(CurrencyCode_1)s]
+[parameters: {'CurrencyName': 'shekel ', 'Currency_image': '1.png', 'CurrencySymbol': '\u20aa', 'ShortName': 'shekel', 'ModifiedBy': 2, 'ModifiedOn': datetime.datetime(2023, 10, 10, 6, 0, 10, 901073), 'CurrencyCode_1': 2}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+ERROR:root:currencymaster in update: (pymssql._pymssql.OperationalError) (2628, b"String or binary data would be truncated in table 'PYBATS.dbo.tbl_CurrencyMaster', column 'ShortName'. Truncated value: 'sheke'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: UPDATE [tbl_CurrencyMaster] SET [CurrencyName]=%(CurrencyName)s, [Currency_image]=%(Currency_image)s, [CurrencySymbol]=%(CurrencySymbol)s, [ShortName]=%(ShortName)s, [ModifiedBy]=%(ModifiedBy)s, [ModifiedOn]=%(ModifiedOn)s WHERE [tbl_CurrencyMaster].[CurrencyCode] = %(CurrencyCode_1)s]
+[parameters: {'CurrencyName': 'shekel ', 'Currency_image': '1.png', 'CurrencySymbol': 'string', 'ShortName': 'shekel ', 'ModifiedBy': 2, 'ModifiedOn': datetime.datetime(2023, 10, 10, 6, 0, 22, 585323), 'CurrencyCode_1': 2}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)

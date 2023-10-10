@@ -1,8 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime,date
 
-
-
 class show(BaseModel):
     LocationCode : int
     LocationName : str
@@ -12,6 +10,13 @@ class show(BaseModel):
     IsActive : int
     AddedBy : int
     AddedOn : datetime
+    class Config:
+        orm_mode=True
+        
+ 
+class loaddropdown(BaseModel):
+    LocationCode : int
+    LocationName : str
     class Config:
         orm_mode=True
      
@@ -34,7 +39,18 @@ class putout(BaseModel):
     LocationName : str
     code : str = "200"
     status : str = "Updated"
+
     
 class showlocation(BaseModel):
     LocationName : str
     LocationCode : int
+    
+
+class loaddropdown(BaseModel):
+    LocationName : str
+    LocationCode : int
+    class Config:
+        orm_mode=True
+    
+    
+    

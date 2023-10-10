@@ -17,6 +17,8 @@ def create(request:schema.add,db: Session,current_user):
         db.commit()
         db.refresh(create)
         return create
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         # Log the exception
         logging.error(f"ChannelSettings in create: {str(e)}")
@@ -46,6 +48,8 @@ def get_id(PlaceCode:int,db:Session):
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail=f"setting  not available")
         return data
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         # Log the exception
         logging.error(f"ChannelSettings in get_id: {str(e)}")
@@ -58,6 +62,8 @@ def get_all(db:Session):
         if not get_all:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
         return get_all
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         # Log the exception
         logging.error(f"ChannelSettings in get_all: {str(e)}")

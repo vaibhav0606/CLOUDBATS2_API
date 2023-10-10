@@ -31,3 +31,9 @@ class putout(BaseModel):
 class showstarcasttype(BaseModel):
     StarCastTypeCode : int
     StarCastTypeName : str
+
+class loaddropdown(BaseModel):
+    StarCastTypeCode : int
+    StarCastTypeName : str
+    class Config:
+        orm_mode=True

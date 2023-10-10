@@ -41,4 +41,11 @@ class putout(BaseModel):
 class showsubmodule(BaseModel):
     SubModuleCode : int
     SubModuleName : str
+    
+
+class loaddropdown(BaseModel):
+    SubModuleCode : int
+    SubModuleName : str
+    class Config:
+        orm_mode=True
    

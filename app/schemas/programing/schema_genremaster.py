@@ -33,3 +33,9 @@ class putout(BaseModel):
 class showGenre(BaseModel):
     GenreCode : int
     GenreName : str
+
+class loaddropdown(BaseModel):
+    GenreCode : int
+    GenreName : str
+    class Config:
+        orm_mode=True
