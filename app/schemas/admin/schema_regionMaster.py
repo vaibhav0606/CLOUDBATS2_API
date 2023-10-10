@@ -20,7 +20,7 @@ class add(BaseModel):
     ZoneCode : int
     IsActive  : int
     
-class update(BaseModel):
+class update(add):
     pass 
     
 class postout(BaseModel):
@@ -36,3 +36,10 @@ class putout(BaseModel):
 class showregion(BaseModel):
     RegionCode : int
     RegionName : str
+    
+
+class loaddropdown(BaseModel):
+    RegionCode : int
+    RegionName : str
+    class Config:
+        orm_mode=True

@@ -33,3 +33,10 @@ class putout(BaseModel):
 class showdesignation(BaseModel):
     DesignationCode : int
     DesignationName : str
+    
+
+class loaddropdown(BaseModel):
+    DesignationCode : int
+    DesignationName : str
+    class Config:
+        orm_mode=True

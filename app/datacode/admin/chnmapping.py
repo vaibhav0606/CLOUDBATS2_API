@@ -18,6 +18,8 @@ def create(request:schema.add,db: Session,current_user):
         db.commit()
         db.refresh(create)
         return create
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"LoginLocChnlMapping in create: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error") 
@@ -46,6 +48,8 @@ def get_id(PlaceCode:int,db:Session):
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail=f"mapping  not available")
         return data
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"LoginLocChnlMapping in get_id: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error") 
@@ -56,6 +60,8 @@ def get_all(db:Session):
         if not get_all:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
         return get_all
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"LoginLocChnlMapping in get_all: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error") 
