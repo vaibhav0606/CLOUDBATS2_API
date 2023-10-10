@@ -200,6 +200,7 @@ class CountryMaster(Base):
     Employee = relationship("EmployeeMaster", back_populates="Country")
     Language = relationship("LanguageMaster", back_populates="Country")
     StarCastMaster = relationship("StarCastMaster", back_populates="Country")
+    SupplierMasterTable = relationship("SupplierMasterTable" , back_populates="Country" )
     
 
 class StateMaster(Base):
@@ -217,6 +218,7 @@ class StateMaster(Base):
     Country = relationship("CountryMaster", back_populates="State")
     place = relationship("PlaceMaster", back_populates="State")
     Employee = relationship("EmployeeMaster", back_populates="State")
+    SupplierMasterTable = relationship("SupplierMasterTable" , back_populates="State" )
     
 class PlaceMaster(Base):
     __tablename__ = 'tbl_PlaceMaster'
@@ -235,6 +237,7 @@ class PlaceMaster(Base):
     State = relationship("StateMaster", back_populates="place")
     Zone = relationship("ZoneMaster", back_populates="place")
     Employee = relationship("EmployeeMaster", back_populates="Place")
+    SupplierMasterTable = relationship("SupplierMasterTable" , back_populates="Place" )
 
 class EmployeeMaster(Base):
     __tablename__ = 'tbl_EmployeeMaster'
@@ -527,4 +530,34 @@ class GenreMaster(Base):
     AddedOn= Column(DateTime, default=func.now())
     ModifiedBy= Column(BigInteger)
     ModifiedOn= Column(DateTime, onupdate=func.now())
+    
+    
+class SupplierMasterTable(Base):
+    __tablename__ = 'tbl_SupplierMaster'
+
+    SupplierCode = Column(Integer, primary_key=True, autoincrement=True)
+    SupplierName = Column(String(100), nullable=False)
+    ShortName = Column(String(10), nullable=False)
+    SupplierERPCode = Column(String(30))
+    Address1 = Column(String(100), nullable=False)
+    Address2 = Column(String(100))
+    Pin = Column(String(10))
+    CountryCode = Column(BigInteger,ForeignKey('tbl_CountryMaster.CountryCode'))  
+    StateCode = Column(BigInteger,ForeignKey('tbl_StateMaster.StateCode'))
+    PlaceCode = Column(BigInteger,ForeignKey('tbl_PlaceMaster.PlaceCode') )
+    Phone = Column(String(20))
+    Mobile = Column(String(20))
+    Fax = Column(String(20))
+    Email = Column(String(50))
+    ContactPerson = Column(String(100), nullable=False)
+    IsActive = Column(Integer, nullable=False)
+    AddedBy = Column(BigInteger)
+    AddedOn= Column(DateTime, default=func.now())
+    ModifiedBy = Column(BigInteger)
+    ModifiedOn= Column(DateTime, onupdate=func.now())
+    
+    Country = relationship("CountryMaster", back_populates="SupplierMasterTable")
+    State = relationship("StateMaster", back_populates="SupplierMasterTable")
+    Place = relationship("PlaceMaster", back_populates="SupplierMasterTable")
+    
     

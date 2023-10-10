@@ -43,3 +43,12 @@ class putout(BaseModel):
 class showplace(BaseModel):
     PlaceCode : int
     PlaceName : str
+    
+
+class loaddropdown(BaseModel):
+    PlaceCode : int
+    PlaceName : str
+    class Config:
+        orm_mode=True
+
+  

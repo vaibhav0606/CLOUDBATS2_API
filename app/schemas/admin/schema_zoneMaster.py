@@ -6,7 +6,7 @@ class show(BaseModel):
     ZoneCode : int
     ZoneName : str
     ShortName : str
-    IsActive  : str
+    IsActive  : int
     AddedBy : int 
     AddedOn : datetime
     class Config:
@@ -15,7 +15,7 @@ class show(BaseModel):
 class add(BaseModel):
     ZoneName : str
     ShortName : str
-    IsActive  : str
+    IsActive  : int
     
 class update(add):
     pass
@@ -33,3 +33,9 @@ class putout(BaseModel):
 class showzone(BaseModel):
     ZoneCode: int
     ZoneName : str
+    
+class loaddropdown(BaseModel):
+    ZoneCode: int
+    ZoneName : str
+    class Config:
+        orm_mode=True

@@ -47,3 +47,10 @@ class putout(BaseModel):
 class showform(BaseModel):
     FormCode : int 
     FormName : str
+    
+
+class loaddropdown(BaseModel):
+    FormCode : int 
+    FormName : str
+    class Config:
+        orm_mode=True

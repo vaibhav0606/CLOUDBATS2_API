@@ -14,6 +14,8 @@ def create(request:schema_loginmaster.addLogin,db: Session):
         db.commit()
         db.refresh(create)
         return create 
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"loginmaster in create: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -27,7 +29,9 @@ def update(LoginCode:int,request:schema_loginmaster.updatelogin,db: Session):
         update=update.update(request)
         db.commit()
         db.refresh(update)
-        return 'updated'
+        return update.first()
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
             logging.error(f"loginmaster in update: {str(e)}")
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -39,6 +43,8 @@ def get_id(LoginCode:int,db:Session):
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail=f"Login with the LoginCode {LoginCode} is not available")
         return user
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
             logging.error(f"loginmaster in get_id: {str(e)}")
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -51,6 +57,8 @@ def for_login(LoginName:str,token:str,db:Session):
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail=f"Login with the LoginCode {LoginName} is not available")
         return user
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"loginmaster in for_login: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -61,6 +69,8 @@ def get_all(db:Session):
         if not get_all:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
         return get_all
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"loginmaster in get_all: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")

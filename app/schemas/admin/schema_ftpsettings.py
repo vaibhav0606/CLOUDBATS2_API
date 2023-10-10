@@ -36,3 +36,10 @@ class putout(BaseModel):
     code : str = "200"
     status : str = "Updated"
     
+
+class loaddropdown(BaseModel):
+    FTPSettingCode : int
+    SettingDesc : str
+    class Config:
+        orm_mode=True
+    

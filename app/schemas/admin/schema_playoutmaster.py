@@ -37,3 +37,10 @@ class putout(BaseModel):
 class showPlayout(BaseModel):
     PlayoutCode : int
     PlayoutName : str
+    
+
+class loaddropdown(BaseModel):
+    PlayoutCode : int
+    PlayoutName : str
+    class Config:
+        orm_mode=True

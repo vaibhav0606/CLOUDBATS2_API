@@ -29,7 +29,7 @@ class add(BaseModel):
     CountryCode : int
     IsActive  : int
     
-class update(BaseModel):
+class update(add):
     pass 
     
 class postout(BaseModel):
@@ -41,3 +41,10 @@ class putout(BaseModel):
     StarCastName : str
     code : str = "200"
     status : str = "Updated"
+    
+
+class loaddropdown(BaseModel):
+    StarCastCode : int
+    StarCastName : str
+    class Config:
+        orm_mode=True

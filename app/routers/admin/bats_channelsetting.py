@@ -20,3 +20,4 @@ def get_id(id:int,db: Session = Depends(database.Connect_db),current_user: users
 def create_currency(request: schema.add,db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return datacode.create(request,db,current_user)
 
+

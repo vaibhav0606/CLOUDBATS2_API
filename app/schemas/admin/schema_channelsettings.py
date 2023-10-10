@@ -97,3 +97,5 @@ class postout(BaseModel):
 class putout(BaseModel):
     code : str = "200"
     status : str = "Updated"
+
+

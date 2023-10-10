@@ -1,7 +1,8 @@
 from fastapi import FastAPI 
 from typing import Optional
-from .models import models_User, models_master
-from .database import engine
+from app.models import models_User, models_master, model_programing
+from app.database import engine
+from fastapi.middleware.cors import CORSMiddleware
 """
 from starlette.exceptions import HTTPException
 from fastapi.exceptions import RequestValidationError
@@ -41,10 +42,16 @@ from app.routers.admin import (
 from app.routers.programing import ( 
     bats_starcasttype,
     bats_starcastmaster,
-    bats_genrecode)
+    bats_genrecode,
+    bats_suppliermastertable,
+    bats_contenttypemaster,
+    bats_subgenremaster
+    
+    )
 
 models_User.Base.metadata.create_all(engine)
 models_master.Base.metadata.create_all(engine)
+model_programing.Base.metadata.create_all(engine)
 
 routers = [
     authentication.router,
@@ -77,7 +84,10 @@ routers = [
     bats_ftpsetting.router,
     bats_starcasttype.router,
     bats_starcastmaster.router,
-    bats_genrecode.router
+    bats_genrecode.router,
+    bats_suppliermastertable.router,
+    bats_contenttypemaster.router,
+    bats_subgenremaster.router
     
 ]
 
@@ -94,3 +104,16 @@ bats.add_exception_handler(Exception, unhandled_exception_handler)
 
 for router in routers:
     bats.include_router(router)
+    
+    
+
+origins = [
+    "*",  # Allow requests from this domain
+    ]
+bats.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,  # Allow cookies in CORS requests
+    allow_methods=["*"],     # Allow all HTTP methods (you can specify a list of methods)
+    allow_headers=["*"],     # Allow all HTTP headers (you can specify a list of headers)
+)

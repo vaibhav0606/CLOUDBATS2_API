@@ -23,3 +23,7 @@ def create(request: schema_countrymaster.add,db: Session = Depends(database.Conn
 @router.put('/{CountryCode}', response_model=schema_countrymaster.putout)
 def update(CountryCode:int, request: schema_countrymaster.update, db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return countrymaster.update(CountryCode,request, db,current_user)
+
+@router.get('/drop/',response_model=List[schema_countrymaster.loaddropdown])
+def get_drop(db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
+    return countrymaster.get_drop(db)
