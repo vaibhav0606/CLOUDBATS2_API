@@ -32,3 +32,10 @@ class putout(BaseModel):
     CurrencyName : str
     code : str = "200"
     status : str = "Updated"
+    
+
+class loaddropdown(BaseModel):
+    CurrencyCode : int
+    CurrencyName : str
+    class Config:
+        orm_mode=True

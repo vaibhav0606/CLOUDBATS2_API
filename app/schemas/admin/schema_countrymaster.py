@@ -11,6 +11,13 @@ class show(BaseModel):
     AddedOn : datetime
     class Config:
         orm_mode=True
+
+class loaddropdown(BaseModel):
+    CountryCode : int
+    CountryName : str
+    class Config:
+        orm_mode=True
+     
      
 class add(BaseModel):
     CountryName : str
@@ -33,5 +40,11 @@ class putout(BaseModel):
 class showcountry(BaseModel):
     CountryCode : int
     CountryName : str
+
+class loaddropdown(BaseModel):
+    CountryCode : int
+    CountryName : str
+    class Config:
+        orm_mode=True
 
     

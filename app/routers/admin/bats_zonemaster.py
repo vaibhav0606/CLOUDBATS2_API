@@ -23,3 +23,7 @@ def create(request: schema_zoneMaster.add,db: Session = Depends(database.Connect
 @router.put('/{ZoneCode}', response_model=schema_zoneMaster.putout)
 def update(ZoneCode:int, request: schema_zoneMaster.update, db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
     return zonemaster.update(ZoneCode,request, db,current_user)
+
+@router.get('/drop/',response_model=List[schema_zoneMaster.loaddropdown])
+def get_drop(db: Session = Depends(database.Connect_db),current_user: userschema.User = Depends(oauth2.get_current_user)):
+    return zonemaster.get_drop(db)

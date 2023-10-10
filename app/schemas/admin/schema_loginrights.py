@@ -4,16 +4,17 @@ from .schema_moduleMaster import showmodule
 from .schema_subModuleMaster import showsubmodule
 from .schema_frommaster import showform
 from .schema_loginmaster import showlogins
+from typing import Optional
 
 
 
 class show(BaseModel):
-    Login : showlogins
-    model : showmodule
-    SubModule : showsubmodule
-    Form : showform
-    CanRead : int
-    CanWrite : int
+    Login : Optional[showlogins]
+    module : Optional[showmodule]
+    SubModule : Optional[showsubmodule]
+    Form : Optional[showform]
+    CanRead : Optional[int]
+    CanWrite : Optional[int]
     AddedBy : int
     AddedOn : datetime
     class Config:

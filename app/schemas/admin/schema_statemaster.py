@@ -39,3 +39,11 @@ class putout(BaseModel):
 class showstate(BaseModel):
     StateCode : int
     StateName : str
+
+
+
+class loaddropdown(BaseModel):
+    StateCode : int
+    StateName : str
+    class Config:
+        orm_mode=True

@@ -20,6 +20,8 @@ def create(request:schema.add,db: Session,current_user):
         db.commit()
         db.refresh(create)
         return create 
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"SubModuleMaster in create: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -41,6 +43,8 @@ def update(SubModuleCode:int,request:schema.update,db: Session,current_user):
         update_query.update(update_data, synchronize_session=False)
         db.commit()
         return update_query.first()
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"SubModuleMaster in update: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -52,6 +56,8 @@ def get_id(SubModuleCode:int,db:Session):
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                                 detail=f"SubModule not available")
         return data
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"SubModuleMaster in get_id: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
@@ -62,8 +68,22 @@ def get_all(db:Session):
         if not get_all:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
         return get_all
+    except HTTPException as http_exception:
+        raise http_exception
     except Exception as e:
         logging.error(f"SubModuleMaster in get_all: {str(e)}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
+
+def get_drop(db:Session):
+    try:
+        get_all=db.query(model).all()
+        if not get_all:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"data not found")
+        return get_all
+    except HTTPException as http_exception:
+        raise http_exception
+    except Exception as e:
+        logging.error(f"SubModuleMaster in get_drop: {str(e)}")
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Server Error")
 
 
